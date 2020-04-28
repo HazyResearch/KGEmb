@@ -2,7 +2,7 @@
 
 This code is a PyTorch implementation of implementation of Hyperbolic KG embeddings [6] as well as multiple state-of-the-art KG embedding models which can be trained for the link prediction task.
 
-# Library Overview
+## Library Overview
 
 This implementation includes the following models:
 
@@ -10,7 +10,7 @@ Complex embeddings:
 
 *   Complex [1]
 *   Complex-N3 [2]
-*   RotatE [3]
+*   RotatE (without self-adversarial sampling) [3]
 
 Euclidean embeddings:
 
@@ -115,6 +115,16 @@ optional arguments:
 
 ## Examples 
 
+We provide example scripts with hyper-parameters for WN18RR and FB237 in the examples/ folder. 
+
+## Citation
+
+If you use the codes, please cite the following paper [6]:
+
+```
+TODO: add bibtex
+```
+
 ## References
 
 [1] Trouillon, Théo, et al. "Complex embeddings for simple link prediction."
@@ -135,3 +145,8 @@ Advances in neural information processing systems. 2019.
 
 [6] Chami, Ines, et al. "Low-Dimensional Hyperbolic Knowledge Graph Embeddings."
 Annual Meeting of the Association for Computational Linguistics. 2020.
+
+Some of the code was forked from the original ComplEx-N3 implementation which can be found at: [https://github.com/facebookresearch/kbc](https://github.com/facebookresearch/kbc)
+
+
+
