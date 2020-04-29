@@ -30,7 +30,7 @@ parser.add_argument(
     "--model", default="RotE", choices=all_models, help="Knowledge Graph embedding model"
 )
 parser.add_argument(
-    "--regularizer", choices=["N3", "N2"], default="N3", help="Regularizer"
+    "--regularizer", choices=["N3", "F2"], default="N3", help="Regularizer"
 )
 parser.add_argument(
     "--reg", default=0, type=float, help="Regularization weight"

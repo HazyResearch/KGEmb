@@ -59,10 +59,10 @@ class BaseC(KGModel):
     def get_factors(self, queries):
         """Compute factors for embeddings' regularization."""
         head_e, rel_e, rhs_e = self.get_complex_embeddings(queries)
-        head_e = torch.sqrt(head_e[0] ** 2 + head_e[1] ** 2)
-        rel_e = torch.sqrt(rel_e[0] ** 2 + rel_e[1] ** 2)
-        rhs_e = torch.sqrt(rhs_e[0] ** 2 + rhs_e[1] ** 2)
-        return head_e, rel_e, rhs_e
+        head_f = torch.sqrt(head_e[0] ** 2 + head_e[1] ** 2)
+        rel_f = torch.sqrt(rel_e[0] ** 2 + rel_e[1] ** 2)
+        rhs_f = torch.sqrt(rhs_e[0] ** 2 + rhs_e[1] ** 2)
+        return head_f, rel_f, rhs_f
 
 
 class ComplEx(BaseC):
@@ -92,3 +92,4 @@ class RotatE(BaseC):
             head_e[0] * sin + head_e[1] * cos
         ], 1)
         return lhs_e, self.bh(queries[:, 0])
+

@@ -119,7 +119,10 @@ class KGOptimizer(object):
         if self.neg_sample_size > 0:
             loss, factors = self.neg_sampling_loss(input_batch)
         else:
-            loss, factors = self.no_neg_sampling_loss(input_batch)
+            predictions, factors = self.model(input_batch, eval_mode=True)
+            truth = input_batch[:, 2]
+            loss = self.loss_fn(predictions, truth)
+            # loss, factors = self.no_neg_sampling_loss(input_batch)
 
         # regularization loss
         loss += self.regularizer.forward(factors)
@@ -181,3 +184,4 @@ class KGOptimizer(object):
                 bar.set_postfix(loss=f'{l.item():.4f}')
         total_loss /= counter
         return total_loss
+

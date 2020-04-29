@@ -1,4 +1,4 @@
-# Hyperbolic Knowledge Graph Embedding (hyp_kg)
+# Hyperbolic Knowledge Graph Embedding 
 
 This code is a PyTorch implementation of implementation of Hyperbolic KG embeddings [6] as well as multiple state-of-the-art KG embedding models which can be trained for the link prediction task.
 
@@ -29,9 +29,7 @@ Hyperbolic embeddings:
 
 ## Installation
 
-First, create a python 3.7 environment and install dependencies: 
-
-From hyp_kg/ run:
+First, create a python 3.7 environment and install dependencies:
 
 ```bash
 virtualenv -p python3.7 hyp_kg_env
@@ -45,14 +43,15 @@ source hyp_kg_env/bin/activate
 pip install -r requirements.txt
 ```
 
-Set environment variables and activate your environment:
+Then, set environment variables and activate your environment:
+
 ```bash
 source set_env.sh
 ```
 
 ## Datasets
 
-Then, download and pre-process the datasets:
+Download and pre-process the datasets:
 
 ```bash
 source datasets/download.sh
@@ -115,7 +114,7 @@ optional arguments:
 
 ## Examples 
 
-We provide example scripts with hyper-parameters for WN18RR and FB237 in the examples/ folder. 
+We provide example scripts with hyper-parameters for WN18RR in the examples/ folder. 
 
 ## Citation
 
@@ -147,6 +146,4 @@ Advances in neural information processing systems. 2019.
 Annual Meeting of the Association for Computational Linguistics. 2020.
 
 Some of the code was forked from the original ComplEx-N3 implementation which can be found at: [https://github.com/facebookresearch/kbc](https://github.com/facebookresearch/kbc)
-
-
 
