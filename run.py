@@ -15,7 +15,7 @@ import torch.optim
 import models
 import optimizers.regularizers as regularizers
 
-from datasets.datasets import Dataset
+from datasets.kg_dataset import KGDataset
 from models import all_models
 from optimizers.kg_optimizer import KGOptimizer
 from utils.train import get_savedir, avg_both, format_metrics, count_params
@@ -36,7 +36,7 @@ parser.add_argument(
     "--reg", default=0, type=float, help="Regularization weight"
 )
 parser.add_argument(
-    "--optimizer", choices=["Adagrad", "Adam", "SGD", "SparseAdam", "RSGD", "RAdam"], default="Adagrad",
+    "--optimizer", choices=["Adagrad", "Adam", "SparseAdam"], default="Adagrad",
     help="Optimizer"
 )
 parser.add_argument(
@@ -109,7 +109,7 @@ def train(args):
 
     # create dataset
     dataset_path = os.path.join(os.environ["DATA_PATH"], args.dataset)
-    dataset = Dataset(dataset_path, args.debug)
+    dataset = KGDataset(dataset_path, args.debug)
     args.sizes = dataset.get_shape()
 
     # load data

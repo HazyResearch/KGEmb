@@ -170,7 +170,7 @@ class KGModel(nn.Module, ABC):
 
                 scores = self.score(q, candidates, eval_mode=True)
                 targets = self.score(q, rhs, eval_mode=False)
-
+                
                 # set filtered and true scores to -1e6 to be ignored
                 for i, query in enumerate(these_queries):
                     filter_out = filters[(query[0].item(), query[1].item())]
@@ -211,5 +211,6 @@ class KGModel(nn.Module, ABC):
                 lambda x: torch.mean((ranks <= x).float()).item(),
                 (1, 3, 10)
             ))))
-
+        
         return mean_rank, mean_reciprocal_rank, hits_at
+

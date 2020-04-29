@@ -7,7 +7,7 @@ import numpy as np
 import torch
 
 
-class Dataset(object):
+class KGDataset(object):
     """Knowledge Graph dataset class."""
 
     def __init__(self, data_path, debug):
