@@ -49,9 +49,9 @@ class TransE(BaseE):
         self.sim = "dist"
 
     def get_queries(self, queries):
-        had_e = self.entity(queries[:, 0])
+        head_e = self.entity(queries[:, 0])
         rel_e = self.rel(queries[:, 1])
-        lhs_e = had_e + rel_e
+        lhs_e = head_e + rel_e
         lhs_biases = self.bh(queries[:, 0])
         return lhs_e, lhs_biases
 

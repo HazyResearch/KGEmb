@@ -6,13 +6,13 @@ This code is a PyTorch implementation of implementation of Hyperbolic KG embeddi
 
 This implementation includes the following models:
 
-##### Complex embeddings:
+#### Complex embeddings:
 
 *   Complex [1]
 *   Complex-N3 [2]
 *   RotatE (without self-adversarial sampling) [3]
 
-##### Euclidean embeddings:
+#### Euclidean embeddings:
 
 *   CTDecomp [2]
 *   TransE [4]
@@ -21,7 +21,7 @@ This implementation includes the following models:
 *   RefE [6]
 *   AttE [6]
 
-##### Hyperbolic embeddings:
+#### Hyperbolic embeddings:
 
 *   RotH [6]
 *   RefH [6]
@@ -115,6 +115,19 @@ optional arguments:
 ## Examples 
 
 We provide example scripts with hyper-parameters for WN18RR in the examples/ folder. 
+
+## New models
+
+To add a new (complex/hyperbolic/Euclidean) Knowledge Graph embedding model, implement the corresponding query embedding under models/, e.g.:
+
+```
+def get_queries(self, queries):
+    head_e = self.entity(queries[:, 0])
+    rel_e = self.rel(queries[:, 1])
+    lhs_e = ### Do something here ###
+    lhs_biases = self.bh(queries[:, 0])
+    return lhs_e, lhs_biases
+```
 
 ## Citation
 
