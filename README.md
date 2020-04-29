@@ -6,13 +6,13 @@ This code is a PyTorch implementation of implementation of Hyperbolic KG embeddi
 
 This implementation includes the following models:
 
-Complex embeddings:
+##### Complex embeddings:
 
 *   Complex [1]
 *   Complex-N3 [2]
 *   RotatE (without self-adversarial sampling) [3]
 
-Euclidean embeddings:
+##### Euclidean embeddings:
 
 *   CTDecomp [2]
 *   TransE [4]
@@ -21,7 +21,7 @@ Euclidean embeddings:
 *   RefE [6]
 *   AttE [6]
 
-Hyperbolic embeddings:
+##### Hyperbolic embeddings:
 
 *   RotH [6]
 *   RefH [6]
@@ -86,7 +86,7 @@ optional arguments:
   --regularizer {N3,N2}
                         Regularizer
   --reg REG             Regularization weight
-  --optimizer {Adagrad,Adam,SGD,SparseAdam,RSGD,RAdam}
+  --optimizer {Adagrad,Adam,SparseAdam}
                         Optimizer
   --max_epochs MAX_EPOCHS
                         Maximum number of epochs to train for
