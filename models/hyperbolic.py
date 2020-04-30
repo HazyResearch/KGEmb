@@ -19,11 +19,14 @@ class BaseH(KGModel):
                                     args.init_size)
         self.entity.weight.data = self.init_size * torch.randn((self.sizes[0], self.rank), dtype=self.data_type)
         self.rel.weight.data = self.init_size * torch.randn((self.sizes[1], 2 * self.rank), dtype=self.data_type)
-        # self.rel.weight.data = self.init_size * torch.randn((self.sizes[1], self.rank), dtype=self.data_type)
         self.rel_diag = nn.Embedding(self.sizes[1], self.rank)
         self.rel_diag.weight.data = 2 * torch.rand((self.sizes[1], self.rank), dtype=self.data_type) - 1.0
-        self.c = nn.Embedding(self.sizes[1], 1)
-        self.c.weight.data = torch.ones((self.sizes[1], 1), dtype=self.data_type)
+        self.multi_c = args.multi_c
+        if self.multi_c:
+            c_init = torch.ones((self.sizes[1], 1), dtype=self.data_type)
+        else:
+            c_init = torch.ones((1, 1), dtype=self.data_type)
+        self.c = nn.Parameter(c_init, requires_grad=True)
 
     def get_rhs(self, queries, eval_mode):
         """Get embeddings and biases of target entities."""
@@ -43,7 +46,7 @@ class RotH(BaseH):
 
     def get_queries(self, queries):
         """Compute embedding and biases of queries."""
-        c = F.softplus(self.c(queries[:, 1]))
+        c = F.softplus(self.c[queries[:, 1]])
         head = expmap0(self.entity(queries[:, 0]), c)
         rel1, rel2 = torch.chunk(self.rel(queries[:, 1]), 2, dim=1)
         rel1 = expmap0(rel1, c)
@@ -59,7 +62,7 @@ class RefH(BaseH):
 
     def get_queries(self, queries):
         """Compute embedding and biases of queries."""
-        c = F.softplus(self.c(queries[:, 1]))
+        c = F.softplus(self.c[queries[:, 1]])
         rel, _ = torch.chunk(self.rel(queries[:, 1]), 2, dim=1)
         rel = expmap0(rel, c)
         lhs = givens_reflection(self.rel_diag(queries[:, 1]), self.entity(queries[:, 0]))
@@ -85,7 +88,7 @@ class AttH(BaseH):
 
     def get_queries(self, queries):
         """Compute embedding and biases of queries."""
-        c = F.softplus(self.c(queries[:, 1]))
+        c = F.softplus(self.c[queries[:, 1]])
         head = self.entity(queries[:, 0])
         rot_mat, ref_mat = torch.chunk(self.rel_diag(queries[:, 1]), 2, dim=1)
         rot_q = givens_rotations(rot_mat, head).view((-1, 1, self.rank))
@@ -100,3 +103,4 @@ class AttH(BaseH):
         rel = expmap0(rel, c)
         res = project(mobius_add(lhs, rel, c), c)
         return (res, c), self.bh(queries[:, 0])
+

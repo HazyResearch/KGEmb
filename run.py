@@ -84,7 +84,7 @@ parser.add_argument(
     help="Only use 1000 examples for debugging"
 )
 parser.add_argument(
-    "--train_c", action="store_true", help="Optimize curvatures"
+    "--multi_c", action="store_true", help="Multiple curvatures per relation"
 )
 
 
