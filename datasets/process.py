@@ -87,8 +87,6 @@ def process_dataset(path):
       examples: Dictionary mapping splits to with Numpy array containing corresponding KG triples.
       filters: Dictionary containing filters for lhs and rhs predictions.
     """
-    lhs_skip = collections.defaultdict(set)
-    rhs_skip = collections.defaultdict(set)
     ent2idx, rel2idx = get_idx(dataset_path)
     examples = {}
     splits = ["train", "valid", "test"]

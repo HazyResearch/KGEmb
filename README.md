@@ -1,6 +1,6 @@
 # Hyperbolic Knowledge Graph Embedding 
 
-This code is a PyTorch implementation of implementation of Hyperbolic KG embeddings [6] as well as multiple state-of-the-art KG embedding models which can be trained for the link prediction task.
+This code is a PyTorch implementation of implementation of Hyperbolic KG embeddings [6] as well as multiple state-of-the-art KG embedding models which can be trained for the link prediction task. A Tensorflow implementation is also available at: [https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb](https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb)
 
 ## Library Overview
 
@@ -73,7 +73,7 @@ usage: run.py [-h] [--dataset {FB15K,WN,WN18RR,FB237,YAGO3-10}]
               [--neg_sample_size NEG_SAMPLE_SIZE] [--dropout DROPOUT]
               [--init_size INIT_SIZE] [--learning_rate LEARNING_RATE]
               [--gamma GAMMA] [--bias {constant,learn,none}]
-              [--dtype {single,double}] [--double_neg] [--debug] [--train_c]
+              [--dtype {single,double}] [--double_neg] [--debug] [--multi_c]
 
 Knowledge Graph Embedding
 
@@ -109,12 +109,21 @@ optional arguments:
                         Machine precision
   --double_neg          Whether to negative sample both head and tail entities
   --debug               Only use 1000 examples for debugging
-  --train_c             Optimize curvatures
+  --multi_c             Multiple curvatures per relation
 ```
 
 ## Examples 
 
-We provide example scripts with hyper-parameters for WN18RR in the examples/ folder. 
+We provide example scripts with hyper-parameters for WN18RR in the examples/ folder. For dimensions 32 and 500, these models should achieve the following test MRRs:
+
+|   model    | rank |  MRR  | H@10 |
+|------------|------|-------|------|
+| ComplEx-N3 |  32  | .407  | .449 |
+| ComplEx-N3 | 500  | .477  | .572 |
+|    RotE    |  32  | .455  | .527 |
+|    RotE    | 500  | .494  | .587 |
+|    RotH    |  32  | .473  | .551 |
+|    RotH    | 500  | .489  | .581 |
 
 ## New models
 
