@@ -1,6 +1,6 @@
 # Hyperbolic Knowledge Graph Embedding 
 
-This code is a PyTorch implementation of implementation of Hyperbolic KG embeddings [6] as well as multiple state-of-the-art KG embedding models which can be trained for the link prediction task. A Tensorflow implementation is also available at: [https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb](https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb)
+This code is a PyTorch implementation of Hyperbolic KG embeddings [6] as well as multiple state-of-the-art KG embedding models which can be trained for the link prediction task. A Tensorflow implementation is also available at: [https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb](https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb)
 
 ## Library Overview
 
