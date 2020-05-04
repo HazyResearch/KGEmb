@@ -1,6 +1,6 @@
 # Hyperbolic Knowledge Graph Embedding 
 
-This code is a PyTorch implementation of Hyperbolic KG embeddings [6] as well as multiple state-of-the-art KG embedding models which can be trained for the link prediction task. A Tensorflow implementation is also available at: [https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb](https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb)
+This code is the official PyTorch implementation of Low-Dimensional Hyperbolic Knowledge Graph Embeddings [6] as well as multiple state-of-the-art KG embedding models which can be trained for the link prediction task. A Tensorflow implementation is also available at: [https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb](https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb)
 
 ## Library Overview
 
@@ -33,13 +33,7 @@ First, create a python 3.7 environment and install dependencies:
 
 ```bash
 virtualenv -p python3.7 hyp_kg_env
-```
-
-```bash
 source hyp_kg_env/bin/activate
-```
-
-```bash
 pip install -r requirements.txt
 ```
 
@@ -55,9 +49,6 @@ Download and pre-process the datasets:
 
 ```bash
 source datasets/download.sh
-```
-
-```bash
 python datasets/process.py
 ```
 
