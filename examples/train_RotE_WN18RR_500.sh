@@ -1,3 +1,4 @@
+#!/bin/bash
 cd .. 
 source set_env.sh
 python run.py \
