@@ -32,7 +32,7 @@ def test(model_dir):
     model = getattr(models, args.model)(args)
     device = 'cuda'
     model.to(device)
-    model.load_state_dict(torch.load(os.path.join(model_dir, 'model.pkl')))
+    model.load_state_dict(torch.load(os.path.join(model_dir, 'model.pt')))
     
     # eval
     test_metrics = avg_both(*model.compute_metrics(test_examples, filters))

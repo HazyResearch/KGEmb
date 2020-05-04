@@ -157,7 +157,7 @@ def train(args):
                 counter = 0
                 best_epoch = step
                 logging.info("\t Saving model at epoch {} in {}".format(step, save_dir))
-                torch.save(model.cpu().state_dict(), os.path.join(save_dir, "model.pkl"))
+                torch.save(model.cpu().state_dict(), os.path.join(save_dir, "model.pt"))
                 model.cuda()
             else:
                 counter += 1
@@ -171,10 +171,10 @@ def train(args):
 
     logging.info("\t Optimization finished")
     if not best_mrr:
-        torch.save(model.cpu().state_dict(), os.path.join(save_dir, "model.pkl"))
+        torch.save(model.cpu().state_dict(), os.path.join(save_dir, "model.pt"))
     else:
         logging.info("\t Loading best model saved at epoch {}".format(best_epoch))
-        model.load_state_dict(torch.load(os.path.join(save_dir, "model.pkl")))
+        model.load_state_dict(torch.load(os.path.join(save_dir, "model.pt")))
     model.cuda()
     model.eval()
     
