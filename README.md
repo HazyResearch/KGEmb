@@ -54,6 +54,8 @@ python datasets/process.py
 
 ## Usage
 
+To train and evaluate a KG embedding model for the link prediction task, use the run.py script:
+
 ```bash
 usage: run.py [-h] [--dataset {FB15K,WN,WN18RR,FB237,YAGO3-10}]
               [--model {TransE,CP,MurE,RotE,RefE,AttE,RotH,RefH,AttH,ComplEx,RotatE}]
