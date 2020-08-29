@@ -57,6 +57,6 @@ def givens_reflection(r, x):
     givens = r.view((r.shape[0], -1, 2))
     givens = givens / torch.norm(givens, p=2, dim=-1, keepdim=True)
     x = x.view((r.shape[0], -1, 2))
-    x_ref = givens[:, :, 0:1] * torch.cat((x[:, :, 0:1], -x[:, :, :1]), dim=-1) + givens[:, :, 1:] * torch.cat(
+    x_ref = givens[:, :, 0:1] * torch.cat((x[:, :, 0:1], -x[:, :, 1:]), dim=-1) + givens[:, :, 1:] * torch.cat(
         (x[:, :, 1:], x[:, :, 0:1]), dim=-1)
     return x_ref.view((r.shape[0], -1))
