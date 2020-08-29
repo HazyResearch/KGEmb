@@ -1,6 +1,6 @@
 # Hyperbolic Knowledge Graph Embedding 
 
-This code is the official PyTorch implementation of Low-Dimensional Hyperbolic Knowledge Graph Embeddings [6] as well as multiple state-of-the-art KG embedding models which can be trained for the link prediction task. A Tensorflow implementation is also available at: [https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb](https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb)
+This code is the official PyTorch implementation of [Low-Dimensional Hyperbolic Knowledge Graph Embeddings](https://arxiv.org/abs/2005.00545) [6] as well as multiple state-of-the-art KG embedding models which can be trained for the link prediction task. A Tensorflow implementation is also available at: [https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb](https://github.com/tensorflow/neural-structured-learning/tree/master/research/kg_hyp_emb)
 
 ## Library Overview
 
@@ -53,6 +53,8 @@ python datasets/process.py
 ```
 
 ## Usage
+
+To train and evaluate a KG embedding model for the link prediction task, use the run.py script:
 
 ```bash
 usage: run.py [-h] [--dataset {FB15K,WN,WN18RR,FB237,YAGO3-10}]
@@ -134,7 +136,12 @@ def get_queries(self, queries):
 If you use the codes, please cite the following paper [6]:
 
 ```
-TODO: add bibtex
+@article{chami2020low,
+  title={Low-Dimensional Hyperbolic Knowledge Graph Embeddings},
+  author={Chami, Ines and Wolf, Adva and Juan, Da-Cheng and Sala, Frederic and Ravi, Sujith and R{\'e}, Christopher},
+  journal={arXiv preprint arXiv:2005.00545},
+  year={2020}
+}
 ```
 
 ## References
