@@ -8,7 +8,7 @@ python run.py \
             --regularizer N3 \
             --reg 0.0 \
             --optimizer Adam \
-            --max_epochs 200 \
+            --max_epochs 300 \
             --patience 15 \
             --valid 5 \
             --batch_size 500 \
