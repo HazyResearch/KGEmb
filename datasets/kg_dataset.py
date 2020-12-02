@@ -63,4 +63,3 @@ class KGDataset(object):
     def get_shape(self):
         """Returns KG dataset shape."""
         return self.n_entities, self.n_predicates, self.n_entities
-

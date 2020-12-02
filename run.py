@@ -10,7 +10,6 @@ import torch.optim
 
 import models
 import optimizers.regularizers as regularizers
-
 from datasets.kg_dataset import KGDataset
 from models import all_models
 from optimizers.kg_optimizer import KGOptimizer
@@ -20,7 +19,8 @@ parser = argparse.ArgumentParser(
     description="Knowledge Graph Embedding"
 )
 parser.add_argument(
-    "--dataset", default="WN18RR", choices=["FB15K", "WN", "WN18RR", "FB237", "YAGO3-10"], help="Knowledge Graph dataset"
+    "--dataset", default="WN18RR", choices=["FB15K", "WN", "WN18RR", "FB237", "YAGO3-10"],
+    help="Knowledge Graph dataset"
 )
 parser.add_argument(
     "--model", default="RotE", choices=all_models, help="Knowledge Graph embedding model"
@@ -148,7 +148,7 @@ def train(args):
         logging.info("\t Epoch {} | average valid loss: {:.4f}".format(step, valid_loss))
 
         if (step + 1) % args.valid == 0:
-            valid_metrics = avg_both(*model.compute_metrics(valid_examples, filters)) 
+            valid_metrics = avg_both(*model.compute_metrics(valid_examples, filters))
             logging.info(format_metrics(valid_metrics, split="valid"))
 
             valid_mrr = valid_metrics["MRR"]
@@ -177,7 +177,7 @@ def train(args):
         model.load_state_dict(torch.load(os.path.join(save_dir, "model.pt")))
     model.cuda()
     model.eval()
-    
+
     # Validation metrics
     valid_metrics = avg_both(*model.compute_metrics(valid_examples, filters))
     logging.info(format_metrics(valid_metrics, split="valid"))
@@ -189,4 +189,3 @@ def train(args):
 
 if __name__ == "__main__":
     train(parser.parse_args())
-

@@ -92,4 +92,3 @@ class RotatE(BaseC):
             head_e[0] * sin + head_e[1] * cos
         ], 1)
         return lhs_e, self.bh(queries[:, 0])
-

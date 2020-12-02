@@ -42,4 +42,3 @@ class N3(Regularizer):
                 torch.abs(f) ** 3
             )
         return norm / factors[0].shape[0]
-

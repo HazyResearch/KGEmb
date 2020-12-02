@@ -1,8 +1,8 @@
 """Knowledge Graph embedding model optimizer."""
 import numpy as np
-import tqdm
 import torch
 import torch.nn.functional as F
+import tqdm
 from torch import nn
 
 
@@ -184,4 +184,3 @@ class KGOptimizer(object):
                 bar.set_postfix(loss=f'{l.item():.4f}')
         total_loss /= counter
         return total_loss
-

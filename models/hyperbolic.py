@@ -103,4 +103,3 @@ class AttH(BaseH):
         rel = expmap0(rel, c)
         res = project(mobius_add(lhs, rel, c), c)
         return (res, c), self.bh(queries[:, 0])
-

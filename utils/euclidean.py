@@ -60,4 +60,3 @@ def givens_reflection(r, x):
     x_ref = givens[:, :, 0:1] * torch.cat((x[:, :, 0:1], -x[:, :, 1:]), dim=-1) + givens[:, :, 1:] * torch.cat(
         (x[:, :, 1:], x[:, :, 0:1]), dim=-1)
     return x_ref.view((r.shape[0], -1))
-

@@ -1,8 +1,8 @@
 """Euclidean Knowledge Graph embedding models where embeddings are in real space."""
 import numpy as np
 import torch
-
 from torch import nn
+
 from models.base import KGModel
 from utils.euclidean import euc_sqdistance, givens_rotations, givens_reflection
 
@@ -98,6 +98,7 @@ class RotE(BaseE):
         lhs_e = givens_rotations(self.rel_diag(queries[:, 1]), self.entity(queries[:, 0])) + self.rel(queries[:, 1])
         lhs_biases = self.bh(queries[:, 0])
         return lhs_e, lhs_biases
+
 
 class RefE(BaseE):
     """Euclidean 2x2 Givens reflections"""
