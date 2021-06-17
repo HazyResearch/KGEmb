@@ -136,10 +136,11 @@ def get_queries(self, queries):
 If you use the codes, please cite the following paper [6]:
 
 ```
-@article{chami2020low,
+@inproceedings{chami2020low,
   title={Low-Dimensional Hyperbolic Knowledge Graph Embeddings},
   author={Chami, Ines and Wolf, Adva and Juan, Da-Cheng and Sala, Frederic and Ravi, Sujith and R{\'e}, Christopher},
-  journal={arXiv preprint arXiv:2005.00545},
+  booktitle={Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics},
+  pages={6901--6914},
   year={2020}
 }
 ```
